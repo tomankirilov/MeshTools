@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://addons/vertex_painter/res/activate_button.gd" id="1_5a04d"]
+
+[node name="UiActivateButton" type="Button"]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Vertex Painter"
+flat = true
+script = ExtResource("1_5a04d")
