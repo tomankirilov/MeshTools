@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3]
+[gd_scene load_steps=4 format=3 uid="uid://ccp3uq26ddyvx"]
 
 [ext_resource type="Material" uid="uid://cg132xd2n5g1j" path="res://addons/vertex_painter/user_interface/brush_cursor/brush_cursor.material" id="1_351dn"]
 [ext_resource type="Script" path="res://addons/vertex_painter/user_interface/brush_cursor/brush_cursor.gd" id="2_kya2a"]

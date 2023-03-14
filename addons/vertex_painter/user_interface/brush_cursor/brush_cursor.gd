@@ -18,6 +18,7 @@ func _enter_tree() -> void:
 
 func on_mouse_moved(value:Vector3) -> void:
 	position = events.mouse_position
+	pass
 
 
 func on_activated(value:bool) -> void:

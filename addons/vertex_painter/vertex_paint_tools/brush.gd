@@ -1,6 +1,6 @@
 #BRUSH TOOL:
 @tool
-extends "res://addons/vertex_painter/vertex_paint_tools/tool.gd"
+extends "res://addons/vertex_painter/vertex_paint_tools/vertex_paint_base_tool.gd"
 
 var mouse_position:Vector3
 
