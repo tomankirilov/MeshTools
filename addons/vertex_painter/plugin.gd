@@ -6,11 +6,11 @@ var selection_manager
 var input_manager
 var camera_cast
 var ui_manager
-var tool_manager
+var vpainter_tool_manager
 var data_manager
 
-var data:VertexPaintData
-var events:Events
+var data:VpainterData
+var events:VpainterEvents
 
 func _handles(object):
 	if selection_manager.is_selection_editable:
@@ -28,11 +28,11 @@ func _forward_3d_gui_input(viewport_camera, event):
 
 func _enter_tree():
 	self.name = "plugin"
-	data = load("res://addons/vertex_painter/data/data.res")
+	data = load("res://addons/vertex_painter/data/vpainter_data.res")
 	
-	events = load("res://addons/vertex_painter/data/events.res")
+	events = load("res://addons/vertex_painter/systems/vpainter_events.res")
 
-	data_manager       = load("res://addons/vertex_painter/data_manager.gd").new()
+	data_manager       = load("res://addons/vertex_painter/data/data_manager.gd").new()
 	data_manager.name = "data_manager"
 	add_child(data_manager)
 
@@ -48,9 +48,9 @@ func _enter_tree():
 	camera_cast.name = "camera_cast"
 	add_child(camera_cast)
 
-	tool_manager      = load("res://addons/vertex_painter/tool_manager.gd").new()
-	tool_manager.name = "tool_manager"
-	add_child(tool_manager)
+	vpainter_tool_manager      = load("res://addons/vertex_painter/vertex_paint_tools/vpainter_tool_manager.gd").new()
+	vpainter_tool_manager.name = "vpainter_tool_manager"
+	add_child(vpainter_tool_manager)
 
 	ui_manager = load("res://addons/vertex_painter/ui_manager.gd").new()
 	ui_manager.name = "ui_manager"

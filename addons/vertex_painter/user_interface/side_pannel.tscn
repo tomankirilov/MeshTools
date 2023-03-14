@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/vertex_painter/res/side_pannel.gd" id="1_ju7qi"]
+[ext_resource type="Script" path="res://addons/vertex_painter/user_interface/side_pannel.gd" id="1_ju7qi"]
 
 [node name="side_pannel" type="Control"]
 visible = false

@@ -1,16 +1,16 @@
 #BRUSH TOOL:
 @tool
-extends "res://addons/vertex_painter/tools/tool.gd"
+extends "res://addons/vertex_painter/vertex_paint_tools/tool.gd"
 
 var mouse_position:Vector3
 
-var data:VertexPaintData
-var events:Events
+var data:VpainterData
+var events:VpainterEvents
 
 func _enter_tree():
 	super()
-	data   = load("res://addons/vertex_painter/data/data.res")
-	events = load("res://addons/vertex_painter/data/events.res")
+	data   = load("res://addons/vertex_painter/data/vpainter_data.res")
+	events = load("res://addons/vertex_painter/systems/vpainter_events.res")
 	name = "brush"
 
 func _on_enable():

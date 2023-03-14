@@ -1,6 +1,6 @@
 @tool
 extends Resource
-class_name VertexPaintData
+class_name VpainterData
 
 signal active_tool_changed(value:int)
 @export var active_tool:int = 0:

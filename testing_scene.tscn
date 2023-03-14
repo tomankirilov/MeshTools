@@ -5,8 +5,6 @@ radius = 1.0
 
 [node name="Node3D" type="Node3D"]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]

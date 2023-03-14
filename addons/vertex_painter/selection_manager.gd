@@ -4,11 +4,11 @@ extends EditorPlugin
 
 
 var is_selection_editable:bool = false
-var events:Events
+var events:VpainterEvents
 
 func _enter_tree():
 	get_editor_interface().get_selection().selection_changed.connect(_on_selection_changed)
-	events = load("res://addons/vertex_painter/data/events.res")
+	events = load("res://addons/vertex_painter/systems/vpainter_events.res")
 
 func _on_selection_changed():
 	var selection :Array = get_editor_interface().get_selection().get_selected_nodes()

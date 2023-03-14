@@ -1,10 +1,11 @@
 #BRUSH TOOL:
 @tool
-extends "res://addons/vertex_painter/tools/tool.gd"
+extends "res://addons/vertex_painter/vertex_paint_tools/tool.gd"
+
 
 func _enter_tree():
 	super()
-	name = "fill"
+	name = "eraser"
 
 func _on_enable():
 	super()

@@ -2,8 +2,8 @@
 @tool
 extends Node
 
-var data:VertexPaintData
-var events:Events
+var data:VpainterData
+var events:VpainterEvents
 
 var brush
 var eraser
@@ -13,15 +13,15 @@ var tools:Array[VertexPaintTool]
 var active_tool:int
 
 func _enter_tree():
-	data = load("res://addons/vertex_painter/data/data.res")
+	data = load("res://addons/vertex_painter/data/vpainter_data.res")
 	data.active_tool_changed.connect(on_tool_changed)
 
-	events = load("res://addons/vertex_painter/data/events.res")
+	events = load("res://addons/vertex_painter/systems/vpainter_events.res")
 	events.is_activated.connect(on_plugin_activated)
 
-	tools.append(load("res://addons/vertex_painter/tools/brush.gd").new())
-	tools.append(load("res://addons/vertex_painter/tools/eraser.gd").new())
-	tools.append(load("res://addons/vertex_painter/tools/fill.gd").new())
+	tools.append(load("res://addons/vertex_painter/vertex_paint_tools/brush.gd").new())
+	tools.append(load("res://addons/vertex_painter/vertex_paint_tools/eraser.gd").new())
+	tools.append(load("res://addons/vertex_painter/vertex_paint_tools/fill.gd").new())
 
 	active_tool = clamp(data.active_tool, 0, tools.size() - 1)
 

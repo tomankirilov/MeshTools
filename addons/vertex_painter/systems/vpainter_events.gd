@@ -1,6 +1,6 @@
 @tool
 extends Resource
-class_name Events
+class_name VpainterEvents
 
 
 signal is_activated(value:bool)

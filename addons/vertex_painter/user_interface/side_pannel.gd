@@ -2,8 +2,8 @@
 extends Control
 
 var plugin:EditorPlugin
-var data:VertexPaintData
-var events:Events
+var data:VpainterData
+var events:VpainterEvents
 
 var btn_paint_color:ColorPickerButton
 var btn_erase_color:ColorPickerButton
@@ -28,12 +28,12 @@ func on_plugin_activated(value):
 
 func _enter_tree():
 	hide()
-	data = load("res://addons/vertex_painter/data/data.res")
+	data = load("res://addons/vertex_painter/data/vpainter_data.res")
 	
-	events = load("res://addons/vertex_painter/data/events.res")
+	events = load("res://addons/vertex_painter/systems/vpainter_events.res")
 	events.is_activated.connect(on_plugin_activated)
 
-	data = load("res://addons/vertex_painter/data/data.res")
+	data = load("res://addons/vertex_painter/data/vpainter_data.res")
 	btn_paint_color = $MarginContainer/VBoxContainer/Colors/GridContainer/PaintColor
 	btn_paint_color.color = data.paint_color
 	btn_paint_color.color_changed.connect(on_paint_color_changed)

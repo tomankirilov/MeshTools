@@ -4,7 +4,7 @@ extends EditorPlugin
 
 var plugin:EditorPlugin
 var input_manager
-var events:Events
+var events:VpainterEvents
 
 var is_hit:bool = false
 var hit_position:Vector3
@@ -15,7 +15,7 @@ var hit_normal:Vector3
 func _enter_tree():
 	plugin = get_parent()
 	input_manager = plugin.input_manager
-	events = load("res://addons/vertex_painter/data/events.res")
+	events = load("res://addons/vertex_painter/systems/vpainter_events.res")
 
 func _cast(camera:Node, event:InputEvent, direct_space_state) -> void:
 	var ray_origin = camera.project_ray_origin(input_manager.mouse_pos)

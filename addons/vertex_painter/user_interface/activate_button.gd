@@ -2,10 +2,10 @@
 extends Button
 
 
-var events:Events
+var events:VpainterEvents
 
 func _enter_tree():
-	events = load("res://addons/vertex_painter/data/events.res")
+	events = load("res://addons/vertex_painter/systems/vpainter_events.res")
 	button_down.connect(on_button_down)
 
 

@@ -9,13 +9,13 @@ var ui_brush_cursor
 
 
 func _enter_tree():
-	ui_brush_cursor = load("res://addons/vertex_painter/res/brush_cursor/brush_cursor.tscn").instantiate()
+	ui_brush_cursor = load("res://addons/vertex_painter/user_interface/brush_cursor/brush_cursor.tscn").instantiate()
 	add_child(ui_brush_cursor)
 
-	ui_activate_button = load("res://addons/vertex_painter/res/activate_button.tscn").instantiate()
+	ui_activate_button = load("res://addons/vertex_painter/user_interface/activate_button.tscn").instantiate()
 	add_control_to_container(EditorPlugin.CONTAINER_SPATIAL_EDITOR_MENU, ui_activate_button)
 
-	ui_side_pannel = load("res://addons/vertex_painter/res/side_pannel.tscn").instantiate()
+	ui_side_pannel = load("res://addons/vertex_painter/user_interface/side_pannel.tscn").instantiate()
 	add_control_to_container(EditorPlugin.CONTAINER_SPATIAL_EDITOR_SIDE_LEFT, ui_side_pannel)
 
 
