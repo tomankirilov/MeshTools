@@ -15,14 +15,15 @@ func _enter_tree():
 
 func _on_enable():
 	super()
-	print("brush enabled")
 	input_events.lmb_down.connect(_on_lmb_down)
 	input_events.lmb_up.connect(_on_lmb_up)
 
 func _on_disable():
 	super()
-	input_events.lmb_down.disconnect(_on_lmb_down)
-	input_events.lmb_up.disconnect(_on_lmb_up)
+	if input_events.lmb_down.is_connected(_on_lmb_down):
+		input_events.lmb_down.disconnect(_on_lmb_down)
+	if input_events.lmb_up.is_connected(_on_lmb_up):
+		input_events.lmb_up.disconnect(_on_lmb_up)
 
 func _on_lmb_down():
 	process_brush = true

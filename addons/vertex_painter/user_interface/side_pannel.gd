@@ -5,6 +5,8 @@ var plugin:EditorPlugin
 var vpainter_data:VpainterData
 var events:VpainterEvents
 
+var btn_tools:OptionButton
+
 var btn_paint_color:ColorPickerButton
 var btn_erase_color:ColorPickerButton
 
@@ -17,8 +19,6 @@ var ui_brush_size    :HSlider
 var ui_brush_opacity :HSlider
 var ui_brush_falloff :HSlider
 var ui_brush_spacing :HSlider
-
-
 
 func on_plugin_activated(value):
 	if value:
@@ -34,6 +34,12 @@ func _enter_tree():
 	events.is_activated.connect(on_plugin_activated)
 
 	vpainter_data = load("res://addons/vertex_painter/data/vpainter_data.res")
+
+	btn_tools = $MarginContainer/VBoxContainer/Tools
+	btn_tools.selected = vpainter_data.active_tool
+	btn_tools.item_selected.connect(on_active_tool_changed)
+	vpainter_data.active_tool_changed.connect(on_data_active_tool_changed)
+
 	btn_paint_color = $MarginContainer/VBoxContainer/Colors/GridContainer/PaintColor
 	btn_paint_color.color = vpainter_data.paint_color
 	btn_paint_color.color_changed.connect(on_paint_color_changed)
@@ -64,6 +70,17 @@ func _enter_tree():
 	ui_edit_g = $MarginContainer/VBoxContainer/EditableChannels/G
 	ui_edit_b = $MarginContainer/VBoxContainer/EditableChannels/B
 	ui_edit_a = $MarginContainer/VBoxContainer/EditableChannels/A
+
+
+func on_active_tool_changed(value:int):
+	if value == vpainter_data.active_tool:
+		return
+	vpainter_data.active_tool = value
+func on_data_active_tool_changed(value:int):
+	if value == btn_tools.selected:
+		return
+	btn_tools.selected = value
+
 
 func on_brush_size_changed(value:float) -> void:
 	if value == vpainter_data.brush_size:

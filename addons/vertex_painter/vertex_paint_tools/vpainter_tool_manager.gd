@@ -5,10 +5,6 @@ extends Node
 var vpainter_data:VpainterData
 var events:VpainterEvents
 
-var brush
-var eraser
-var fill
-
 var tools:Array[VertexPaintTool]
 var active_tool:int
 
@@ -34,15 +30,11 @@ func on_plugin_activated(value):
 		for tool in tools:
 			tool.enabled = false
 
-
 func on_tool_changed(value:int):
 	if value == active_tool:
 		return
-
 	tools[active_tool].enabled = false
 	active_tool = clamp(value, 0, tools.size() - 1)
 	tools[active_tool].enabled = true
 
-func _exit_tree():
-	for child in get_children():
-		child.free()
+

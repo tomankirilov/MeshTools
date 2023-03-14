@@ -26,9 +26,9 @@ func _enter_tree() -> void:
 func on_mouse_moved() -> void:
 	position = camera_raycast.hit_position
 
-	if camera_raycast.is_hit:
+	if camera_raycast.is_hit and !visible:
 		show()
-	else:
+	elif !camera_raycast.is_hit and visible:
 		hide()
 
 
