@@ -3,7 +3,7 @@
 extends EditorPlugin
 
 var events:VpainterEvents
-var data:VpainterData
+var vpainter_data:VpainterData
 
 var is_mouse_moving:bool = false
 var mouse_pos:Vector2
@@ -18,7 +18,7 @@ var is_bracketright_down:bool = false
 
 func _enter_tree():
 	events = load("res://addons/vertex_painter/systems/vpainter_events.res")
-	data   = load("res://addons/vertex_painter/data/vpainter_data.res")
+	vpainter_data   = load("res://addons/vertex_painter/data/vpainter_data.res")
 
 func _run(event :InputEvent) -> int:
 ########################################################

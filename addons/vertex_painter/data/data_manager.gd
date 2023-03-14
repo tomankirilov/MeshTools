@@ -9,15 +9,15 @@ func _enter_tree():
 func _exit_tree():
 	_save_data()
 
-var data:VpainterData
-var data_path:String = "res://addons/vertex_painter/data/vpainter_data.res"
+var vpainter_data:VpainterData
+var vpainter_data_path:String = "res://addons/vertex_painter/data/vpainter_data.res"
 
 func _save_data():
-	ResourceSaver.save(data, data_path)
+	ResourceSaver.save(vpainter_data, vpainter_data_path)
 
 func _load_data():
-	if ResourceLoader.exists(data_path):
-		data = ResourceLoader.load(data_path)
+	if ResourceLoader.exists(vpainter_data_path):
+		vpainter_data = ResourceLoader.load(vpainter_data_path)
 	else:
-		data = VpainterData.new()
+		vpainter_data = VpainterData.new()
 		_save_data()

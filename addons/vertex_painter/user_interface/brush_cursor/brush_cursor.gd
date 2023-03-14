@@ -2,15 +2,15 @@
 extends MeshInstance3D
 
 
-var data:VpainterData
+var vpainter_data:VpainterData
 var events:VpainterEvents
 
 
 func _enter_tree() -> void:
 	hide()
-	data = load("res://addons/vertex_painter/data/vpainter_data.res")
-	data.brush_size_changed.connect(on_brush_size_changed)
-	data.brush_opacity_changed.connect(on_brush_opacity_changed)
+	vpainter_data = load("res://addons/vertex_painter/data/vpainter_data.res")
+	vpainter_data.brush_size_changed.connect(on_brush_size_changed)
+	vpainter_data.brush_opacity_changed.connect(on_brush_opacity_changed)
 	
 	events = load("res://addons/vertex_painter/systems/vpainter_events.res")
 	events.is_activated.connect(on_activated)

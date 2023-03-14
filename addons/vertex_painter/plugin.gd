@@ -9,7 +9,7 @@ var ui_manager
 var vpainter_tool_manager
 var data_manager
 
-var data:VpainterData
+var vpainter_data:VpainterData
 var events:VpainterEvents
 
 func _handles(object):
@@ -28,7 +28,7 @@ func _forward_3d_gui_input(viewport_camera, event):
 
 func _enter_tree():
 	self.name = "plugin"
-	data = load("res://addons/vertex_painter/data/vpainter_data.res")
+	vpainter_data = load("res://addons/vertex_painter/data/vpainter_data.res")
 	
 	events = load("res://addons/vertex_painter/systems/vpainter_events.res")
 
