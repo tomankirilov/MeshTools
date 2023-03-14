@@ -51,18 +51,22 @@ func _enter_tree():
 	ui_brush_size       = $MarginContainer/VBoxContainer/GridContainer/Size
 	ui_brush_size.value = vpainter_data.brush_size
 	ui_brush_size.value_changed.connect(on_brush_size_changed)
+	vpainter_data.brush_size_changed.connect(on_data_brush_size_changed)
 	
 	ui_brush_opacity = $MarginContainer/VBoxContainer/GridContainer/Opacity
 	ui_brush_opacity.value = vpainter_data.brush_opacity
 	ui_brush_opacity.value_changed.connect(on_brush_opacity_changed)
+	vpainter_data.brush_opacity_changed.connect(on_data_brush_opacity_changed)
 
 	ui_brush_falloff = $MarginContainer/VBoxContainer/GridContainer/Hardness
 	ui_brush_falloff.value = vpainter_data.brush_falloff
 	ui_brush_falloff.value_changed.connect(on_brush_falloff_changed)
+	vpainter_data.brush_falloff_changed.connect(on_data_brush_falloff_changed)
 
 	ui_brush_spacing = $MarginContainer/VBoxContainer/GridContainer/Spacing
 	ui_brush_spacing.value = vpainter_data.brush_spacing
 	ui_brush_spacing.value_changed.connect(on_brush_spacing_changed)
+	vpainter_data.brush_spacing_changed.connect(on_data_brush_spacing_changed)
 
 	ui_edit_r = $MarginContainer/VBoxContainer/EditableChannels/R
 	ui_edit_r.button_pressed = vpainter_data.edit_r
