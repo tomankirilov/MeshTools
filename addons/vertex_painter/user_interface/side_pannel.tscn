@@ -52,22 +52,26 @@ size_flags_horizontal = 4
 
 [node name="R" type="CheckBox" parent="MarginContainer/VBoxContainer/EditableChannels"]
 layout_mode = 2
+button_pressed = true
 text = "R"
 
 [node name="G" type="CheckBox" parent="MarginContainer/VBoxContainer/EditableChannels"]
 layout_mode = 2
+button_pressed = true
 text = "G
 "
 alignment = 2
 
 [node name="B" type="CheckBox" parent="MarginContainer/VBoxContainer/EditableChannels"]
 layout_mode = 2
+button_pressed = true
 text = "B
 "
 alignment = 2
 
 [node name="A" type="CheckBox" parent="MarginContainer/VBoxContainer/EditableChannels"]
 layout_mode = 2
+button_pressed = true
 text = "A"
 alignment = 2
 
@@ -128,7 +132,7 @@ size_flags_vertical = 1
 min_value = 0.01
 max_value = 10.0
 step = 0.01
-value = 1.67
+value = 1.0
 exp_edit = true
 
 [node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
@@ -144,7 +148,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 1
 max_value = 1.0
 step = 0.1
-value = 0.4
+value = 0.1
 
 [node name="Label3" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
@@ -159,7 +163,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 1
 max_value = 1.0
 step = 0.1
-value = 1.0
+value = 0.5
 
 [node name="Label4" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2

@@ -8,6 +8,31 @@ signal active_tool_changed(value:int)
 		active_tool = value
 		emit_signal("active_tool_changed", value)
 
+signal edit_r_changed(value:bool)
+@export var edit_r:bool = true:
+	set(value):
+		edit_r = value
+		emit_signal("edit_r_changed", value)
+
+signal edit_g_changed(value:bool)
+@export var edit_g:bool = true:
+	set(value):
+		edit_g = value
+		emit_signal("edit_g_changed", value)
+
+signal edit_b_changed(value:bool)
+@export var edit_b:bool = true:
+	set(value):
+		edit_b = value
+		emit_signal("edit_b_changed", value)
+
+signal edit_a_changed(value:bool)
+@export var edit_a:bool = true:
+	set(value):
+		edit_a = value
+		emit_signal("edit_a_changed", value)
+
+
 signal brush_size_changed(value:float)
 @export var brush_size:float = 1.0:
 	set(value):

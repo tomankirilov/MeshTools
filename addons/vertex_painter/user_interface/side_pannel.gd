@@ -5,15 +5,15 @@ var plugin:EditorPlugin
 var vpainter_data:VpainterData
 var events:VpainterEvents
 
-var btn_tools:OptionButton
+var ui_tools:OptionButton
 
-var btn_paint_color:ColorPickerButton
-var btn_erase_color:ColorPickerButton
+var ui_paint_color:ColorPickerButton
+var ui_erase_color:ColorPickerButton
 
-var ui_edit_r
-var ui_edit_g
-var ui_edit_b
-var ui_edit_a
+var ui_edit_r:CheckBox
+var ui_edit_g:CheckBox
+var ui_edit_b:CheckBox
+var ui_edit_a:CheckBox
 
 var ui_brush_size    :HSlider
 var ui_brush_opacity :HSlider
@@ -33,21 +33,19 @@ func _enter_tree():
 	events = load("res://addons/vertex_painter/systems/vpainter_events.res")
 	events.is_activated.connect(on_plugin_activated)
 
-	vpainter_data = load("res://addons/vertex_painter/data/vpainter_data.res")
-
-	btn_tools = $MarginContainer/VBoxContainer/Tools
-	btn_tools.selected = vpainter_data.active_tool
-	btn_tools.item_selected.connect(on_active_tool_changed)
+	ui_tools = $MarginContainer/VBoxContainer/Tools
+	ui_tools.selected = vpainter_data.active_tool
+	ui_tools.item_selected.connect(on_active_tool_changed)
 	vpainter_data.active_tool_changed.connect(on_data_active_tool_changed)
 
-	btn_paint_color = $MarginContainer/VBoxContainer/Colors/GridContainer/PaintColor
-	btn_paint_color.color = vpainter_data.paint_color
-	btn_paint_color.color_changed.connect(on_paint_color_changed)
+	ui_paint_color = $MarginContainer/VBoxContainer/Colors/GridContainer/PaintColor
+	ui_paint_color.color = vpainter_data.paint_color
+	ui_paint_color.color_changed.connect(on_paint_color_changed)
 	vpainter_data.paint_color_changed.connect(on_data_paint_color_changed)
 
-	btn_erase_color = $MarginContainer/VBoxContainer/Colors/GridContainer/EraseColor
-	btn_erase_color.color = vpainter_data.erase_color
-	btn_erase_color.color_changed.connect(on_erase_color_changed)
+	ui_erase_color = $MarginContainer/VBoxContainer/Colors/GridContainer/EraseColor
+	ui_erase_color.color = vpainter_data.erase_color
+	ui_erase_color.color_changed.connect(on_erase_color_changed)
 	vpainter_data.erase_color_changed.connect(on_data_erase_color_changed)
 
 	ui_brush_size       = $MarginContainer/VBoxContainer/GridContainer/Size
@@ -67,9 +65,61 @@ func _enter_tree():
 	ui_brush_spacing.value_changed.connect(on_brush_spacing_changed)
 
 	ui_edit_r = $MarginContainer/VBoxContainer/EditableChannels/R
+	ui_edit_r.button_pressed = vpainter_data.edit_r
+	ui_edit_r.toggled.connect(on_edit_r_changed)
+	vpainter_data.edit_r_changed.connect(on_data_edit_r_changed)
+
 	ui_edit_g = $MarginContainer/VBoxContainer/EditableChannels/G
+	ui_edit_g.button_pressed = vpainter_data.edit_g
+	ui_edit_g.toggled.connect(on_edit_g_changed)
+	vpainter_data.edit_g_changed.connect(on_data_edit_g_changed)
+
 	ui_edit_b = $MarginContainer/VBoxContainer/EditableChannels/B
+	ui_edit_b.button_pressed = vpainter_data.edit_b
+	ui_edit_b.toggled.connect(on_edit_b_changed)
+	vpainter_data.edit_b_changed.connect(on_data_edit_b_changed)
+
 	ui_edit_a = $MarginContainer/VBoxContainer/EditableChannels/A
+	ui_edit_a.button_pressed = vpainter_data.edit_a
+	ui_edit_a.toggled.connect(on_edit_a_changed)
+	vpainter_data.edit_a_changed.connect(on_data_edit_a_changed)
+
+
+func on_edit_r_changed(value:bool):
+	if value == vpainter_data.edit_r:
+		return
+	vpainter_data.edit_r = value
+func on_data_edit_r_changed(value:bool):
+	if value == ui_edit_r.button_pressed:
+		return
+	ui_edit_r.button_pressed = value
+
+func on_edit_g_changed(value:bool):
+	if value == vpainter_data.edit_g:
+		return
+	vpainter_data.edit_g = value
+func on_data_edit_g_changed(value:bool):
+	if value == ui_edit_g.button_pressed:
+		return
+	ui_edit_g.button_pressed = value
+
+func on_edit_b_changed(value:bool):
+	if value == vpainter_data.edit_b:
+		return
+	vpainter_data.edit_b = value
+func on_data_edit_b_changed(value:bool):
+	if value == ui_edit_b.button_pressed:
+		return
+	ui_edit_b.button_pressed = value
+
+func on_edit_a_changed(value:bool):
+	if value == vpainter_data.edit_a:
+		return
+	vpainter_data.edit_a = value
+func on_data_edit_a_changed(value:bool):
+	if value == ui_edit_a.button_pressed:
+		return
+	ui_edit_a.button_pressed = value
 
 
 func on_active_tool_changed(value:int):
@@ -77,9 +127,9 @@ func on_active_tool_changed(value:int):
 		return
 	vpainter_data.active_tool = value
 func on_data_active_tool_changed(value:int):
-	if value == btn_tools.selected:
+	if value == ui_tools.selected:
 		return
-	btn_tools.selected = value
+	ui_tools.selected = value
 
 
 func on_brush_size_changed(value:float) -> void:
@@ -127,15 +177,15 @@ func on_paint_color_changed(value:Color):
 		return
 	vpainter_data.paint_color = value
 func on_data_paint_color_changed(value:Color):
-	if value == btn_paint_color.color:
+	if value == ui_paint_color.color:
 		return
-	btn_paint_color.color = value
+	ui_paint_color.color = value
 
 func on_erase_color_changed(value:Color):
 	if value == vpainter_data.erase_color:
 		return
 	vpainter_data.erase_color = value
 func on_data_erase_color_changed(value:Color):
-	if value == btn_erase_color.color:
+	if value == ui_erase_color.color:
 		return
-	btn_erase_color.color = value
+	ui_erase_color.color = value
