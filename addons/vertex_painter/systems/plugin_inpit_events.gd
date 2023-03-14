@@ -2,15 +2,31 @@
 extends Resource
 class_name PluginInputEvents
 
-signal mouse_moving
+
+signal mouse_moved
 var is_mouse_moving:bool = false
 var mouse_screen_position:Vector2
-var is_lmb_down:bool = false
-var is_shift_down:bool = false
-var is_ctrl_down:bool = false
-var is_bracketleft_down:bool = false
-var is_bracketright_down:bool = false
 
+signal lmb_down
+signal lmb_up
+var is_lmb_down:bool = false
+
+
+var is_shift_down:bool = false
+signal shift_down
+signal shift_up
+
+var is_ctrl_down:bool = false
+signal ctrl_down
+signal ctrl_up
+
+var is_bracketleft_down:bool = false
+signal bracketleft_down
+signal bracketleft_up
+
+var is_bracketright_down:bool = false
+signal bracketright_down
+signal bracketright_up
 
 
 
@@ -19,20 +35,20 @@ func _run(event :InputEvent) -> int:
 #       MOUSE BUTTON        ############################
 	if event is InputEventMouse:
 		is_mouse_moving = true
-		emit_signal("mouse_moving")
 		mouse_screen_position = event.position
+		emit_signal("mouse_moved")
 	else:
 		is_mouse_moving = false
 
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.is_pressed():
 			is_lmb_down = true
-#			events.is_lmb_down = true
+			emit_signal("lmb_down")
 			
 			return EditorPlugin.AFTER_GUI_INPUT_STOP
 		else:
 			is_lmb_down = false
-#			events.is_lmb_down = false
+			emit_signal("lmb_up")
 			return EditorPlugin.AFTER_GUI_INPUT_PASS
 
 

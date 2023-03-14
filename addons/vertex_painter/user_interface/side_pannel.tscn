@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=2 format=3 uid="uid://cxw0ff7o7k6wc"]
 
 [ext_resource type="Script" path="res://addons/vertex_painter/user_interface/side_pannel.gd" id="1_ju7qi"]
 
@@ -36,14 +36,12 @@ layout_mode = 2
 
 [node name="Tools" type="OptionButton" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-item_count = 3
+item_count = 2
 selected = 0
 popup/item_0/text = "Paint"
 popup/item_0/id = 0
-popup/item_1/text = "Erase"
-popup/item_1/id = 1
-popup/item_2/text = "Fill"
-popup/item_2/id = 2
+popup/item_1/text = "Fill"
+popup/item_1/id = 2
 
 [node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -130,7 +128,7 @@ size_flags_vertical = 1
 min_value = 0.01
 max_value = 10.0
 step = 0.01
-value = 1.0
+value = 1.67
 exp_edit = true
 
 [node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
@@ -146,7 +144,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 1
 max_value = 1.0
 step = 0.1
-value = 1.0
+value = 0.4
 
 [node name="Label3" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
@@ -177,7 +175,7 @@ size_flags_vertical = 1
 min_value = 0.01
 max_value = 1.0
 step = 0.01
-value = 1.0
+value = 0.1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2

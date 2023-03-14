@@ -20,7 +20,6 @@ func _enter_tree():
 	events.is_activated.connect(on_plugin_activated)
 
 	tools.append(load("res://addons/vertex_painter/vertex_paint_tools/brush.gd").new())
-	tools.append(load("res://addons/vertex_painter/vertex_paint_tools/eraser.gd").new())
 	tools.append(load("res://addons/vertex_painter/vertex_paint_tools/fill.gd").new())
 
 	active_tool = clamp(vpainter_data.active_tool, 0, tools.size() - 1)
@@ -31,7 +30,9 @@ func _enter_tree():
 func on_plugin_activated(value):
 	if value:
 		tools[active_tool].enabled = true
-
+	else:
+		for tool in tools:
+			tool.enabled = false
 
 
 func on_tool_changed(value:int):

@@ -18,13 +18,18 @@ func _enter_tree() -> void:
 	events.is_activated.connect(on_activated)
 
 	input_events = load("res://addons/vertex_painter/systems/plugin_input_events.res")
-	input_events.mouse_moving.connect(on_mouse_moved)
+	input_events.mouse_moved.connect(on_mouse_moved)
 
 	camera_raycast = load("res://addons/vertex_painter/systems/plugin_camera_raycast.res")
 
 
 func on_mouse_moved() -> void:
 	position = camera_raycast.hit_position
+
+	if camera_raycast.is_hit:
+		show()
+	else:
+		hide()
 
 
 func on_activated(value:bool) -> void:
