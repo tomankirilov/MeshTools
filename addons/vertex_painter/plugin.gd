@@ -5,7 +5,7 @@ extends EditorPlugin
 
 var input_events:PluginInputEvents
 var selection_manager
-var camera_cast
+var camera_raycast:PluginCameraRaycast
 var ui_manager
 var vpainter_tool_manager
 var data_manager
@@ -21,7 +21,8 @@ func _handles(object):
 
 func _forward_3d_gui_input(viewport_camera, event):
 	if events.is_active:
-		camera_cast._cast(viewport_camera, event, get_viewport().world_3d.direct_space_state)
+		camera_raycast._cast(viewport_camera, event, get_viewport().world_3d.direct_space_state)
+
 		return input_events._run(event)
 	else:
 		return EditorPlugin.AFTER_GUI_INPUT_PASS
@@ -41,9 +42,8 @@ func _enter_tree():
 	selection_manager.name = "selection_manager"
 	add_child(selection_manager)
 
-	camera_cast = load("res://addons/vertex_painter/systems/cameracast.gd").new()
-	camera_cast.name = "camera_cast"
-	add_child(camera_cast)
+	camera_raycast = load("res://addons/vertex_painter/systems/plugin_camera_raycast.res")
+	camera_raycast._start()
 
 	vpainter_tool_manager      = load("res://addons/vertex_painter/vertex_paint_tools/vpainter_tool_manager.gd").new()
 	vpainter_tool_manager.name = "vpainter_tool_manager"

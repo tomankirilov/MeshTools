@@ -2,6 +2,7 @@
 extends Resource
 class_name PluginInputEvents
 
+signal mouse_moving
 var is_mouse_moving:bool = false
 var mouse_screen_position:Vector2
 var is_lmb_down:bool = false
@@ -18,6 +19,7 @@ func _run(event :InputEvent) -> int:
 #       MOUSE BUTTON        ############################
 	if event is InputEventMouse:
 		is_mouse_moving = true
+		emit_signal("mouse_moving")
 		mouse_screen_position = event.position
 	else:
 		is_mouse_moving = false
