@@ -36,15 +36,15 @@ func _enter_tree():
 	data_manager.name = "data_manager"
 	add_child(data_manager)
 
-	selection_manager  = load("res://addons/vertex_painter/selection_manager.gd").new()
+	selection_manager  = load("res://addons/vertex_painter/systems/selection_manager.gd").new()
 	selection_manager.name = "selection_manager"
 	add_child(selection_manager)
 
-	input_manager = load("res://addons/vertex_painter/input_manager.gd").new()
+	input_manager = load("res://addons/vertex_painter/systems/input_manager.gd").new()
 	input_manager.name = "input_manager"
 	add_child(input_manager)
 
-	camera_cast = load("res://addons/vertex_painter/cameracast.gd").new()
+	camera_cast = load("res://addons/vertex_painter/systems/cameracast.gd").new()
 	camera_cast.name = "camera_cast"
 	add_child(camera_cast)
 
@@ -52,7 +52,7 @@ func _enter_tree():
 	vpainter_tool_manager.name = "vpainter_tool_manager"
 	add_child(vpainter_tool_manager)
 
-	ui_manager = load("res://addons/vertex_painter/ui_manager.gd").new()
+	ui_manager = load("res://addons/vertex_painter/user_interface/ui_manager.gd").new()
 	ui_manager.name = "ui_manager"
 	add_child(ui_manager)
 
