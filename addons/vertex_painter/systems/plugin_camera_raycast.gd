@@ -16,9 +16,11 @@ var is_hit:bool = false:
 
 
 var input_events:PluginInputEvents
+var data:VpainterData
 
 func _start():
 	input_events = load("res://addons/vertex_painter/systems/plugin_input_events.res")
+	data         = load("res://addons/vertex_painter/data/vpainter_data.res")
 
 func _cast(camera:Node, event:InputEvent, direct_space_state) -> void:
 	var ray_origin = camera.project_ray_origin(input_events.mouse_screen_position)

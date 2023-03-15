@@ -8,6 +8,9 @@ signal active_tool_changed(value:int)
 		active_tool = value
 		emit_signal("active_tool_changed", value)
 
+
+@export_flags_3d_physics var collision_layer = 524288
+
 signal edit_r_changed(value:bool)
 @export var edit_r:bool = true:
 	set(value):
